@@ -30,11 +30,15 @@ Then create a new user and give it access to use the newly created database:
 2. Python and pip
 ------------------
 
-With python3 installed, install the following libraries as:
+Python3 can be installed by following instructions on its website: https://www.python.org
+
+Pip3 (python's package manager) can be installed by following instructions on its website: https://pip.pypa.io/en/stable/
+
+Then use pip3 to install the following libraries (substituting <library_name> for the libraries listed below):
 
 ``pip3 install <library_name>``
 
-where library name, is one of the following.
+Libraries:
 
 * django
 * django-registration
@@ -43,8 +47,8 @@ where library name, is one of the following.
 
 Additionally setting up the website on Apache.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For local machines, it is ok to run django, however, for any permanent/large situation switch to using Apache. The instructions for doing so can be found here....
 
+Just a local testing version of the website can be run using the django. However, if you want to permanently host your MGTdb website, we recommend using Apache. The instructions for which can be found at ( ... ).
 
 
 ===========================
@@ -57,9 +61,16 @@ Clone the MGT repository as:
 
 (If you don't have git, download the code as a zip file from the repository location.)
 
-5. changing the settings.py file in the MGT github (databases in lower case and apps in upper case.
+3. Update settings
+-------------------
 
-- change the database {organism to vibrio, then {name: to postgre for database made earlier in step 4.
+Open the location/..../settings.py file and change the various settings according to your setup.
+
+Some particular settings to pay attention to are:
+
+changing the settings.py file in the MGT github (databases in lower case and apps in upper case.
+
+- change the database {organism to vibrio, then {name: to postgres for database made earlier in step 4.
 
 
 
