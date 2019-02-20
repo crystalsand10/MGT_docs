@@ -11,6 +11,13 @@ Welcome to MGT's documentation!
    :caption: Contents:
 
    installation
+   database_schema
+   analysis_pipeline
+   website
+   report
+   additional
+
+
 
 
 

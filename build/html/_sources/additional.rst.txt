@@ -1,0 +1,15 @@
+***********************************
+Additional information
+***********************************
+
+
+RST (ReStructured Text format) information:
+
+http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#rst-primer
+
+
+
+Links to MGT readthedocs page:
+
+* http://mgt-docs.readthedocs.io
+* http://mgt-docs.rtfd.io

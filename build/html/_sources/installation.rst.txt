@@ -1,10 +1,10 @@
-*************************
-Installation instructions
-*************************
+***********************************************
+Setting up a local application
+***********************************************
 
 
 =============
-Requirements:
+Dependencies
 =============
 
 You need to have the following installed.
@@ -18,7 +18,3 @@ With python3 installed, install the following libraries:
 #. django
 #. django-registration
 #. Biopython
-
-
-
-http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#rst-primer
