@@ -9,18 +9,22 @@ Setting up locally requires python3, pip3 (to install various python packages) a
 Required software
 ===========================
 
+
 1. PostgreSQL (database system)
 ---------------------------------
 
-Download and install the PostgreSQL database system.
+Download and install the PostgreSQL database system by following instructions from their website (https://www.postgresql.org).
 
-Create a "website" user in the database:
+Once installed, log into PostgreSQL (via the terminal) create a new database:
 
-``CREATE DATABASE salmonella;``
+``CREATE DATABASE organism;``
+
+
+Then create a new user and give it access to use the newly created database:
 
 ``CREATE USER mlstwebsite WITH password '<PASSWORD>';``
 
-``GRANT ALL PRIVILEGES ON DATABASE salmonella to mlstwebsite;``
+``GRANT ALL PRIVILEGES ON DATABASE organism to mlstwebsite;``
 
 
 2. Python and pip
