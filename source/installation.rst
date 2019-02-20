@@ -43,7 +43,10 @@ Libraries:
 * django
 * django-registration
 * biopython
-
+* django-tables2
+* djangorestframework
+* django_registration
+* psycopg2-binary
 
 Additionally setting up the website on Apache.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
