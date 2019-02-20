@@ -27,13 +27,11 @@ Stages of the reads to genome pipline are displayed in the following flow diagra
 Stages of the genome to allele pipeline are displayed in the following flow diagram.
 
 .. figure:: /images/reads_to_allele.jpg
-    :width: 1325px
     :align: center
-    :height: 1979px
     :alt: alternate text
     :figclass: align-center
 
-    WIP
+    Flow diagram of Illumina reads to initial allele calls file
 
 
 Alleles to MGT types
