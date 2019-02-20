@@ -37,10 +37,10 @@
   <div class="section" id="setting-up-a-local-application">
 <h1>Setting up a local application<a class="headerlink" href="#setting-up-a-local-application" title="Permalink to this headline">¶</a></h1>
 <p>Setting up locally requires python3, pip3 (to install various python packages) and PostgreSQL database system.</p>
-<div class="section" id="installing-software">
-<h2>Installing software<a class="headerlink" href="#installing-software" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="required-software">
+<h2>Required software<a class="headerlink" href="#required-software" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="postgresql-database-system">
-<h3>#. PostgreSQL (database system)<a class="headerlink" href="#postgresql-database-system" title="Permalink to this headline">¶</a></h3>
+<h3>1. PostgreSQL (database system)<a class="headerlink" href="#postgresql-database-system" title="Permalink to this headline">¶</a></h3>
 <p>Download and install the PostgreSQL database system.</p>
 <p>Create a &quot;website&quot; user in the database:</p>
 <p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">salmonella;</span></code></p>
@@ -48,20 +48,26 @@
 <p><code class="docutils literal notranslate"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">salmonella</span> <span class="pre">to</span> <span class="pre">mlstwebsite;</span></code></p>
 </div>
 <div class="section" id="python-and-pip">
-<h3>#. Python and pip<a class="headerlink" href="#python-and-pip" title="Permalink to this headline">¶</a></h3>
+<h3>2. Python and pip<a class="headerlink" href="#python-and-pip" title="Permalink to this headline">¶</a></h3>
 <p>With python3 installed, install the following libraries as:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">&lt;library_name&gt;</span></code></p>
 <p>where library name, is one of the following.</p>
 <ul class="simple">
 <li>django</li>
 <li>django-registration</li>
-<li>Biopython</li>
+<li>biopython</li>
 </ul>
-<p>The next step is to download the MGT code (clone the repository):</p>
-<p>git clone <a class="reference external" href="https://github.com/crystalsand10/Mlst.git">https://github.com/crystalsand10/Mlst.git</a></p>
 <div class="section" id="additionally-setting-up-the-website-on-apache">
 <h4>Additionally setting up the website on Apache.<a class="headerlink" href="#additionally-setting-up-the-website-on-apache" title="Permalink to this headline">¶</a></h4>
 <p>For local machines, it is ok to run django, however, for any permanent/large situation switch to using Apache. The instructions for doing so can be found here....</p>
+</div>
+</div>
+</div>
+<div class="section" id="setting-up-mgt-database">
+<h2>Setting up MGT database<a class="headerlink" href="#setting-up-mgt-database" title="Permalink to this headline">¶</a></h2>
+<p>Clone the MGT repository as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/crystalsand10/Mlst.git</span></code></p>
+<p>(If you don't have git, download the code as a zip file from the repository location.)</p>
 <ol class="arabic simple" start="5">
 <li>changing the settings.py file in the MGT github (databases in lower case and apps in upper case.</li>
 </ol>
@@ -73,8 +79,6 @@
 <li>edit all names and paths to remove salmonella and replace with vibrio using find . -type f -exec sed -i.bak &quot;s/Salmonella/Vibrio/g&quot; {} ;</li>
 <li>ready to set up MGT database, use read me in MGT for next instructions.</li>
 </ol>
-</div>
-</div>
 </div>
 </div>
 
@@ -102,7 +106,8 @@
 <li class="toctree-l1"><a class="reference internal" href="analysis_pipeline.html">Analysis pipeline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database_schema.html">Database schema</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up a local application</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-software">Installing software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#required-software">Required software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-mgt-database">Setting up MGT database</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="additional.html">Additional information</a></li>

@@ -6,10 +6,10 @@ Setting up locally requires python3, pip3 (to install various python packages) a
 
 
 ===========================
-Installing software
+Required software
 ===========================
 
-#. PostgreSQL (database system)
+1. PostgreSQL (database system)
 ---------------------------------
 
 Download and install the PostgreSQL database system.
@@ -23,7 +23,7 @@ Create a "website" user in the database:
 ``GRANT ALL PRIVILEGES ON DATABASE salmonella to mlstwebsite;``
 
 
-#. Python and pip
+2. Python and pip
 ------------------
 
 With python3 installed, install the following libraries as:
@@ -34,16 +34,24 @@ where library name, is one of the following.
 
 * django
 * django-registration
-* Biopython
+* biopython
 
-
-The next step is to download the MGT code (clone the repository):
-
-git clone https://github.com/crystalsand10/Mlst.git
 
 Additionally setting up the website on Apache.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For local machines, it is ok to run django, however, for any permanent/large situation switch to using Apache. The instructions for doing so can be found here....
+
+
+
+===========================
+Setting up MGT database
+===========================
+
+Clone the MGT repository as:
+
+``git clone https://github.com/crystalsand10/Mlst.git``
+
+(If you don't have git, download the code as a zip file from the repository location.)
 
 5. changing the settings.py file in the MGT github (databases in lower case and apps in upper case.
 
