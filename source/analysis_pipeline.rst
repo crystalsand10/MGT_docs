@@ -37,6 +37,13 @@ Stages of the genome to allele pipeline are displayed in the following flow diag
 Alleles to MGT types
 ####################
 
+This section of the pipeline
 
+.. figure:: /images/allele_to_mgt.jpg
+    :align: center
+    :alt: alternate text
+    :figclass: align-center
+
+    Flow diagram of initial allele calls to MGT assignments
 
 
