@@ -2,19 +2,61 @@
 Setting up a local application
 ***********************************************
 
-
-=============
-Dependencies
-=============
-
-You need to have the following installed.
-
-#. Postgres (database system)
-#. Python3 (programming language), and Pip3 (python package manager)
+Setting up locally requires python3, pip3 (to install various python packages) and PostgreSQL database system.
 
 
-With python3 installed, install the following libraries:
+===========================
+Installing software
+===========================
 
-#. django
-#. django-registration
-#. Biopython
+#. PostgreSQL (database system)
+---------------------------------
+
+Download and install the PostgreSQL database system.
+
+Create a "website" user in the database:
+
+``CREATE DATABASE salmonella;``
+
+``CREATE USER mlstwebsite WITH password '<PASSWORD>';``
+
+``GRANT ALL PRIVILEGES ON DATABASE salmonella to mlstwebsite;``
+
+
+#. Python and pip
+------------------
+
+With python3 installed, install the following libraries as:
+
+``pip3 install <library_name>``
+
+where library name, is one of the following.
+
+* django
+* django-registration
+* Biopython
+
+
+The next step is to download the MGT code (clone the repository):
+
+git clone https://github.com/crystalsand10/Mlst.git
+
+Additionally setting up the website on Apache.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For local machines, it is ok to run django, however, for any permanent/large situation switch to using Apache. The instructions for doing so can be found here....
+
+5. changing the settings.py file in the MGT github (databases in lower case and apps in upper case.
+
+- change the database {organism to vibrio, then {name: to postgre for database made earlier in step 4.
+
+
+
+6. copy and paste all files from mgt/Salmonella into mgt/Vibrio
+
+
+
+7. edit all names and paths to remove salmonella and replace with vibrio using find . -type f -exec sed -i.bak "s/Salmonella/Vibrio/g" {} \;
+
+
+
+8. ready to set up MGT database, use read me in MGT for next instructions.

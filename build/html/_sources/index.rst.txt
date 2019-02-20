@@ -7,15 +7,15 @@ Welcome to MGT's documentation!
 ===============================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+	:maxdepth: 2
+	:caption: Contents:
 
-   installation
-   database_schema
-   analysis_pipeline
-   website
-   report
-   additional
+	website
+	report
+	analysis_pipeline
+  	database_schema
+	installation
+	additional
 
 
 

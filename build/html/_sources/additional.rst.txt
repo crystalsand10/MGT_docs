@@ -2,6 +2,9 @@
 Additional information
 ***********************************
 
+Setting up readthedocs on your mac:
+https://docs.readthedocs.io/en/latest/intro/getting-started-with-sphinx.html
+
 
 RST (ReStructured Text format) information:
 
