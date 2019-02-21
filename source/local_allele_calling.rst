@@ -1,7 +1,20 @@
+.. _local_allele_calling:
+
 ***********************************
 Generating alleles file locally
 ***********************************
 
+In order reduce the amount of data to be uploaded some of the MGT pipeline processing can be performed locally.
+
+These steps include:
+
+#. Species, serovar checking
+#. Genome assembly
+#. Genome QC
+#. Extraction of alleles from genome using known allele fasta file
+#. Assignment of 7 gene MLST sequence type
+
+The resulting file is often several orders of magnitude smaller than the raw reads, facilitating rapid upload and analysis.
 
 Installation
 ################
@@ -64,7 +77,7 @@ Outputs
 
 An Alleles file in fasta format: **strainID_alleles.fasta**. 4 different types of "allele" are recorded.
 
-#. A header stating the **7 gene MLST type** predicted by mlst (`<https://github.com/tseemann/mlst>`_)
+#. A header stating the **7 gene MLST type** predicted by `mlst <https://github.com/tseemann/mlst>`_
 #. A header in the format the locus:0_reason_for_failed_call to denote loci with **uncallable alleles**
 #. A header in the format locus:allele to describe **exact matches** to alleles in the reference alleles file
 #. A header in the format locus:new with sequence to describe **new intact alleles or alleles with missing data**
