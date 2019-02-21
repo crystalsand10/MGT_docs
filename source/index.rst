@@ -7,15 +7,16 @@ Welcome to MGT's documentation!
 ===============================
 
 .. toctree::
-	:maxdepth: 2
-	:caption: Contents:
+    :maxdepth: 2
+    :caption: Contents:
 
-	website
-	report
-	analysis_pipeline
-  	database_schema
-	installation
-	additional
+    website
+    report
+    analysis_pipeline
+    database_schema
+    installation
+    additional
+    local_allele_calling
 
 
 

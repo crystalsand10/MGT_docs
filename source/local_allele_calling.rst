@@ -1,23 +1,39 @@
 ***********************************
-Generating Alleles file locally
+Generating alleles file locally
 ***********************************
 
 
 Installation
 ################
 
-Installation should be done with miniconda to ensure compatible versions of various packages are installed.
+This pipeline has many dependencies so conda is the best way to handle them all. So the included .yaml file can be used to create the required environment that will need to be activated before running the script
 
-To install miniconda go to https://conda.io/en/latest/miniconda.html, download and run the latest python3 installer for your OS
+#. Download this folder with shovill_cmd subfolder
 
+#. Download latest miniKraken Database:
 
-Using miniconda create virtual environment using the included yml file:
+    From the kraken website - https://ccb.jhu.edu/software/kraken/ (warning 2.9GB!)
 
-    ``conda env create -f /path/to/fq_to_allelev2.yml -n fq2alleles``
+    OR
 
-Activate the environment:
+    ``wget https://ccb.jhu.edu/software/kraken/dl/minikraken_20171019_4GB.tgz``
 
-    ``conda activate fq2alleles``
+#. unzip archive
+
+#. Add database folder variable with:
+
+    ``export KRAKEN_DEFAULT_DB="/home/user/minikraken_db_folder"``
+
+#. Install conda environment:**
+
+    install miniconda3 -> https://conda.io/miniconda.html
+
+    ``conda create -f /path/to/fq_to_allele.yaml -n deployable_fq_to_genome``
+
+    This may take a while
+
+    ``conda activate deployable_fq_to_genome``
+
 
 Quickstart
 ##########
@@ -30,74 +46,82 @@ The above script will run with all other settings including species and serovar 
 Inputs
 ####################
 
-Reads files
------------
+**Reads files**
+
 Paired end fastq files (gzipped or not) in format strain_name_1.fastq(.gz) and strain_name_2.fastq(.gz)
 
-Reference alleles
------------------
+**Reference alleles**
+
 Fasta file provided with script containing intact alleles for each locus
 (may be initial "1" alleles only or include other intact alleles)
 
-Reference locations
--------------------
+**Reference locations**
+
 Text file provided with script containing position and orientation information for each locus relative to a "reference" genome
+
+Outputs
+#######
+
+An Alleles file in fasta format: **strainID_alleles.fasta**. 4 different types of "allele" are recorded.
+
+#. A header stating the **7 gene MLST type** predicted by mlst (`<https://github.com/tseemann/mlst>`_)
+#. A header in the format the locus:0_reason_for_failed_call to denote loci with **uncallable alleles**
+#. A header in the format locus:allele to describe **exact matches** to alleles in the reference alleles file
+#. A header in the format locus:new with sequence to describe **new intact alleles or alleles with missing data**
+
+This allele file can be submitted (optionally with metadata) to the MGT database for full MGT assignment
+
 
 Parameters
 ##########
 
-.. code-block:: python
-    usage: reads_to_alleles.py [-h] [-s SPECIES] [--no_serotyping NO_SEROTYPING]
-                               [-y SEROTYPE] [-t THREADS] [-m MEMORY] [-f]
-                               [--min_largest_contig MIN_LARGEST_CONTIG]
-                               [--max_contig_no MAX_CONTIG_NO]
-                               [--genome_min GENOME_MIN] [--genome_max GENOME_MAX]
-                               [--n50_min N50_MIN] [--kraken_db KRAKEN_DB]
-                               inputreads refalleles reflocs outpath
+**usage:**
+reads_to_alleles.py [options] inputreads refalleles reflocs outpath
 
-    positional arguments:
-      inputreads            Input paired fastq(.gz) files, comma separated (i.e.
-                            name_1.fastq,name_2.fastq )
-      refalleles            File path to MGT reference alleles file
-      reflocs               File path to MGT allele locations file
-      outpath               Path to ouput file name
+**positional arguments:**
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -s SPECIES, --species SPECIES
-                            String to find in kraken species confirmation test
-                            (default: Salmonella enterica)
-      --no_serotyping NO_SEROTYPING
-                            Do not run Serotyping of Salmonella using SISTR (ON by
-                            default) (default: None)
-      -y SEROTYPE, --serotype SEROTYPE
-                            Serotype to match in SISTR, semicolon separated
-                            (default: Typhimurium;I 4,[5],12:i:-)
-      -t THREADS, --threads THREADS
-                            number of computing threads (default: 4)
-      -m MEMORY, --memory MEMORY
-                            memory available in GB (default: 8)
-      -f, --force           overwrite output files with same strain name?
-                            (default: False)
-      --min_largest_contig MIN_LARGEST_CONTIG
-                            Assembly quality filter: minimum allowable length of
-                            the largest contig in the assembly in bp (default:
-                            60000)
-      --max_contig_no MAX_CONTIG_NO
-                            Assembly quality filter: maximum allowable number of
-                            contigs allowed for assembly (default: 700)
-      --genome_min GENOME_MIN
-                            Assembly quality filter: minimum allowable total
-                            assembly length in bp (default: 4500000)
-      --genome_max GENOME_MAX
-                            Assembly quality filter: maximum allowable total
-                            assembly length in bp (default: 5500000)
-      --n50_min N50_MIN     Assembly quality filter: minimum allowable n50 value
-                            in bp (default: 20000)
-      --kraken_db KRAKEN_DB
-                            path for kraken db (if KRAKEN_DEFAULT_DB variable has
-                            already been set then ignore) (default: )
+:inputreads: Input paired fastq(.gz) files, comma separated (i.e. name_1.fastq,name_2.fastq )
 
+:refalleles: File path to MGT reference alleles file
 
-Options
-####################
+:reflocs: File path to MGT allele locations file
+
+:outpath: Path to ouput file name
+
+**optional arguments:**
+
+-h, --help            show this help message and exit
+-s SPECIES, --species SPECIES
+                    String to find in kraken species confirmation test
+                    (default: Salmonella enterica)
+--no_serotyping
+                    Do not run Serotyping of Salmonella using SISTR (ON by
+                    default) (default: None)
+-y SEROTYPE, --serotype SEROTYPE
+                    Serotype to match in SISTR, semicolon separated
+                    (default: Typhimurium;I 4,[5],12:i:-)
+-t THREADS, --threads THREADS
+                    number of computing threads (default: 4)
+-m MEMORY, --memory MEMORY
+                    memory available in GB (default: 8)
+-f, --force           overwrite output files with same strain name?
+                    (default: False)
+--min_largest_contig MIN_LARGEST_CONTIG
+                    Assembly quality filter: minimum allowable length of
+                    the largest contig in the assembly in bp (default:
+                    60000)
+--max_contig_no MAX_CONTIG_NO
+                    Assembly quality filter: maximum allowable number of
+                    contigs allowed for assembly (default: 700)
+--genome_min GENOME_MIN
+                    Assembly quality filter: minimum allowable total
+                    assembly length in bp (default: 4500000)
+--genome_max GENOME_MAX
+                    Assembly quality filter: maximum allowable total
+                    assembly length in bp (default: 5500000)
+--n50_min N50_MIN     Assembly quality filter: minimum allowable n50 value
+                    in bp (default: 20000)
+--kraken_db KRAKEN_DB
+                    path for kraken db (if KRAKEN_DEFAULT_DB variable has
+                    already been set then ignore) (default: )
+
