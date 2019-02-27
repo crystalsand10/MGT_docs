@@ -53,7 +53,7 @@ Libraries:
 Additionally setting up the website on Apache.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Just a local testing version of the website can be run using the django. However, if you want to permanently host your MGTdb website, we recommend using Apache. The instructions for which can be found at ( ... ).
+Just a local testing version of the website can be run using django's testing server. However, if you want to permanently host your MGTdb website, we recommend using Apache. The instructions for which can be found at https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/.
 
 
 ===========================
@@ -69,7 +69,7 @@ Clone the MGT repository as:
 3. Update settings
 -------------------
 
-Open the location/..../settings.py file and change the various settings according to your setup.
+Open the Mgt/Mgt/settings.py file and change the various settings according to your setup.
 
 Some particular settings to pay attention to are:
 
@@ -77,9 +77,6 @@ changing the settings.py file in the MGT github (databases in lower case and app
 
 - change the database {organism to vibrio, then {name: to postgres for database made earlier in step 4.
 
-
-
-6. copy and paste all files from mgt/Salmonella into mgt/Vibrio
 
 
 
