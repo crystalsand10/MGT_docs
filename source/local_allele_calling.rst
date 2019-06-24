@@ -138,3 +138,20 @@ reads_to_alleles.py [options] inputreads refalleles reflocs outpath
                     path for kraken db (if KRAKEN_DEFAULT_DB variable has
                     already been set then ignore) (default: )
 
+
+Examples
+--------
+
+**example1:** 
+
+running strain 1234 against salmonella typhimurium MGT with 8 cores and 30gb RAM
+
+    python /path/to/reads_to_alleles.py 1234_1.fastq.gz,1234_2.fastq.gz MGT_alleles_file locus_position_file output_file_name --serotype "Typhimurium;I 4,[5],12:i:-" --species "Salmonella enterica" -t 8 -m 30
+
+**example2:**
+
+running strain abcd against vibrio cholerae MGT with 4 cores and 50gb RAM
+(serotyping is currently only for Salmonella)
+
+    python /path/to/reads_to_alleles.py abcd_1.fastq.gz,abcd_2.fastq.gz MGT_alleles_file locus_position_file output_file_name --no_serotyping --species "Vibrio cholerae" -t 4 -m 50
+
