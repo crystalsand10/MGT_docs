@@ -21,7 +21,7 @@ Installation
 
 This pipeline has many dependencies so conda is the best way to handle them all. So the included .yaml file can be used to create the required environment that will need to be activated before running the script
 
-#. Clone the 
+#. Clone the repo
 
 #. Download latest miniKraken Database:
 
