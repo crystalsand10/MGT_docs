@@ -11,6 +11,7 @@ Welcome to MGT's documentation!
     :maxdepth: 2
     :caption: Contents:
 
+    overview
     website
     report
     analysis_pipeline
