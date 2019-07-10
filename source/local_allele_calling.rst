@@ -23,6 +23,8 @@ This pipeline has many dependencies so conda is the best way to handle them all.
 
 #. Clone the repo
 
+    git clone https://github.com/LanLab/MGT_reads2alleles.git
+
 #. Download latest miniKraken Database:
 
     From the kraken website - https://ccb.jhu.edu/software/kraken/ (warning 2.9GB!)
