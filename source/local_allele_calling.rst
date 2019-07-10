@@ -4,12 +4,12 @@
 Generating alleles file locally
 ***********************************
 
-To reduce the amount of data to be uploaded to the `MGT database <http://mgtdb.unsw.edu.au>` some of the MGT pipeline processing can be performed locally.
+To reduce the amount of data to be uploaded to the `MGT database <http://mgtdb.unsw.edu.au>`_ some of the MGT pipeline processing can be performed locally.
 
 These steps include:
 
-#. Species, serovar checking
-#. Genome assembly
+#. Species, serovar checking using `kraken <https://ccb.jhu.edu/software/kraken/>`_ and `SISTR <github.com/phac-nml/sistr_cmd>`_ (for salmonella)
+#. Genome assembly using `shovill <https://github.com/tseemann/shovill>`_ and `skesa <https://github.com/ncbi/SKESA>`_
 #. Genome QC
 #. Extraction of alleles from genome using known allele fasta file
 #. Assignment of 7 gene MLST sequence type
