@@ -142,7 +142,7 @@ reads_to_alleles.py [options] inputreads refalleles reflocs outpath
 
 
 Examples
---------
+########
 
 **example1:** 
 
