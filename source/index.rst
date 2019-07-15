@@ -13,12 +13,13 @@ Welcome to MGT's documentation!
 
     overview
     website
+    local_allele_calling
     report
     analysis_pipeline
     database_schema
     installation
     additional
-    local_allele_calling
+
 
 
 
