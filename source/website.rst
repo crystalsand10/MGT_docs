@@ -97,24 +97,16 @@ Webpage to enable adding isolate to the MGT database. The relevant information c
 
 Note, that for the files to be uploaded, either Illumina sequenced files forward and reverse should be supplied, or alleles files. The advance of providing alleles file is that the uploaded file is a lot smaller (if internet speeds are an issue).
 
-To generate the allele files locally see section  :ref:`local_allele_calling`. Apart of uploaded files, Collection year, Country, Countinent, Privacy status and Isolate name are compulsory fields.
+To generate the allele files locally see section  :ref:`local_allele_calling`. Apart from the uploaded files, Collection year, Country, Countinent, Privacy status and Isolate name are compulsory fields.
 
-Once information is received, 
+Once information is received on the server, it is submitted as a job, where the alleles are first extracted (if reads are provided), following which an MGT assignment is made and added to the database. Details about this process can be found on :ref:`analysis_pipeline`.
 
-This then sets up a job on our server. The results are returned to you as soon as possible.
+Once an MGT assignment is made, an email notification is sent.
+
 
 Privacy
 -------
 
 We take your uploaded isolates privacy very seriously. Your isolates are made public only if you specify. Furthermore, if you delete your isolates, then all associated isolate meta-data and the uploaded files are deleted.
 
-* To delete any single isolate:
-
-1. Go to your Projects
-
-2. Search for your isolate
-
-3. View its details
-
-
-* To delete all isolates in a project:
+Note that when a project is deleted, all the isolates in that project and their associated data are deleted.
