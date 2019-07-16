@@ -76,13 +76,30 @@ Note: Certificates will be added soon to make your communication with the websit
 Uploading isolates
 ------------------
 
-1. Create a project (or choose an existing project)
+Once you log in, you can add projects, and isolates to a project.
 
-2. Supply isolate information:
+Creating a project is straightforward. Simply click on 'Projects' in the top navigation bar. Then select the organism you want to create a project for.
 
-3.  Upload files:
-Type of information accepted
-Can also submit alleles themselves. To generate the allele files locally see :ref:`local_allele_calling`.
+.. image:: images/createProj.png
+  :width: 400
+  :alt: in this fig.
+
+Clicking on '+ Add new project' to create a new project. Only a project name is required to create a project.
+
+
+Once a project is created, navigate to the project detail. Then clicking on '+ Upload new isolate' enables you to add isolates.
+
+.. image:: images/createIsolate.png
+  :width: 400
+  :alt: in this fig.
+
+Webpage to enable adding isolate to the MGT database. The relevant information can be supplied here.
+
+Note, that for the files to be uploaded, either Illumina sequenced files forward and reverse should be supplied, or alleles files. The advance of providing alleles file is that the uploaded file is a lot smaller (if internet speeds are an issue).
+
+To generate the allele files locally see section  :ref:`local_allele_calling`. Apart of uploaded files, Collection year, Country, Countinent, Privacy status and Isolate name are compulsory fields.
+
+Once information is received, 
 
 This then sets up a job on our server. The results are returned to you as soon as possible.
 

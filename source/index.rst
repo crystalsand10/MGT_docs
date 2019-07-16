@@ -17,9 +17,8 @@ Welcome to MGT's documentation!
     report
     analysis_pipeline
     database_schema
-    installation
     additional
-
+    installation
 
 
 
