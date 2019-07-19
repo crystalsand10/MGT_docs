@@ -1,0 +1,11 @@
+{
+        "identifier":"salmonella",
+        "organism":"<i> Salmonella </i> Typhimurium",
+        "description": "",
+        "chromosomes": [
+                {
+                        "number": 1,
+                        "loc_and_filename": "Files/LT2_genome.fasta"
+                }
+        ]
+}

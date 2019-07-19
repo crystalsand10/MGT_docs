@@ -16,9 +16,10 @@ Welcome to MGT's documentation!
     local_allele_calling
     report
     analysis_pipeline
+    installation
     database_schema
     additional
-    installation
+
 
 
 
