@@ -239,15 +239,17 @@ c. Add data to the database. You will need to create a number of input files for
 	The :download:`allelic profiles file<files/MGT2_allelic_profiles.txt>` contains an allelic combination mapped to a unique ST and dST.
 
 
-  9. Populate clonal_complex tables and assign them to allelic profiles:
+  9. Populate clonal complex tables and assign them to allelic profiles:
 
 	``python3 addClonalComplexes.py ../ Mgt Salmonella  Files/ccInfo.txt Files/ClonalComplexes``
 
-	Header (of ccInfo.txt):
-	schemeName	ccAssignmentToAp	ccMerges	tableNum_orderNum(ccInfo)
+	The :download:`ccInfo.txt <files/ccInfo.txt>` contains information regarding the files for each clonal complex, and the clonal complex itself added to the database earlier. The columns are:
 
-	Header (of a ccFile):
-	st	dst	ccOrig
+	| Column 1 = scheme name
+	| Column 2 = A file containing information regarding the clonal complex assignment to an allelic profile (e.g. :download:`MGT7_cc.txt <files/MGT7_cc.txt>`).
+	| Column 3 = A file containing information regarding newly computed clonal complex merges (e.g. :download:`MGT7_cc_merges.txt <files/MGT7_cc_merges.txt>`).
+	| Column 4 = Format of tableNumber_orderNumer.
+
 
 
 
