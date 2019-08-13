@@ -139,10 +139,7 @@ d. Add data to the database. You will need to create a number of input files for
 
   2. Then provide the loci that you'd like your MGT to be based on. An example file is avaiable here. This is a simple table separated file with columns as follows:
 
-  +---------+---------+--------+----+-------+
-  | lociName| startPos|	endPos|	dir| chrNum |
-  +=========+=========+========+====+=======+
-  | | column 2   | column 3  | 
+
 
   ``python3 populateLoci.py ../ Mgt Salmonella Files/lociLocationsInRef.txt``
 
