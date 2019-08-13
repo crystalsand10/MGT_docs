@@ -100,7 +100,7 @@ Then set up information in the databases as described below.
 2. Setting up the databases
 ---------------------------
 
-A link to the database schema for an organism (e.g. newBacteria) is provided here :ref:`database_schema`. 
+A link to the database schema for a new organism (e.g. newBacteria) is provided here :ref:`database_schema`. 
 
 
 a. Go to the downloaded code, such that you are in the same folder as the file manage.py. Then run database migrations as follows:
