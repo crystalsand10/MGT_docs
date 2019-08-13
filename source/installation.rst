@@ -100,7 +100,7 @@ Then set up information in the databases as described below.
 2. Setting up the databases
 ---------------------------
 
-
+A link to the database schema for an organism (e.g. newBacteria) is provided here :ref:`database_schema`. 
 
 
 a. Go to the downloaded code, such that you are in the same folder as the file manage.py. Then run database migrations as follows:
@@ -261,56 +261,44 @@ c. Add data to the database. You will need to create a number of input files for
 	``python -m smtpd -n -c DebuggingServer localhost:25``
 
 
-  11. Populate isolate tables:
+  11. Then, using the registered user name, we populate the isolate tables:
 
-``python3 addIsolates.py ../ Mgt Salmonella Files/isolate_info.tab``
+	``python3 addIsolates.py ../ Mgt Salmonella Files/isolate_info.tab``
 
-(Specify column names of metadata in right at the start of the script).
-
-Header:
-userName	projectName	privacy_status	isolateId	METADATA(cols_tabbed)
+	An example file is provided :download:`here <files/isolate_info.tab>`.  Depending on how you organise your isolate_info.tab file, the columns numbers of each metadata need be changed at the start of the addIsolate.py script.
 
 
 
-12. Populate Hst tables, and assign isolates to hsts:
-``python3 addMgts.py ../ Mgt Salmonella Files/hgt_annotations.tab``
+  12. Next we populate the MGT table, and assign isolates to MGT:
 
-Header:
-username	projectName	isolateName	schName1	schName2	schName3	...	schNameN
+	``python3 addMgts.py ../ Mgt Salmonella Files/mgt_annotations.tab``
 
+	A sample :download:`mgt_annotations.tab <files/mgt_annotations.tab>` is provided here.
 
-13. Script to generate the ap_cc view table: + (sql code for running directly on the sql server).
+  13. Finally, we generate a view table, which contains allelic profiles and clonal complexes for easy query.
 
-``python3 genViewSqlAndClass.py ../ Mgt Salmonella mlstWebsite``
+	``python3 genViewSqlAndClass.py ../ Mgt Salmonella mlstWebsite``
 
-Two files are written out:
-1. "runOnDb.sql" : run the two sql statements in postgresSql (can follow the method in 14.).
-2. "autoGenView" : copy and paste this to autoGenViews.py in the models folder.
+	When this script is run, two files are written out:
 
-14. Run postgres commands from file:
-``psql -U postgres -d salmonella50 -a -f runOnDb.sql``
+	1. "runOnDb.sql" : run the two sql statements in postgresSql (can follow the method in 14. below).
+	2. "autoGenView" : copy and paste this to autoGenViews.py in the models folder.
 
 
+  14. Run postgreSQL commands from file:
 
-5. Update settings
--------------------
-
-Open the Mgt/Mgt/settings.py file and change the various settings according to your setup.
-
-Some particular settings to pay attention to are:
-
-changing the settings.py file in the MGT github (databases in lower case and apps in upper case.
-
-- change the database {organism to vibrio, then {name: to postgres for database made earlier in step 4.
+	``psql -U <postgresUsername> -d newBacteria -a -f runOnDb.sql``
 
 
+=====================================
+Running the website
+=====================================
+
+To run the website locally simply:
+
+`` python3 manage.py runserver ``
+
+Otherwise in the settings set DEBUG=False and follow the instructions in section "Additionally setting up the website via Apache".
 
 
-7. edit all names and paths to remove salmonella and replace with vibrio using find . -type f -exec sed -i.bak "s/Salmonella/Vibrio/g" {} \;
-
-
-
-8. ready to set up MGT database, use read me in MGT for next instructions.
-
-
-You should set up regular backups of your data in the database.
+Remember, you should set up regular backups of your data in the database.
