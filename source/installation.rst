@@ -252,15 +252,16 @@ c. Add data to the database. You will need to create a number of input files for
 
 
 
+  10. Next, we need to make sure that a user is registered, to add isolates and associated metadata. To do so, run the web application and register.
+
+	The web application can be run locally as:
+	``python3 manage.py runserver``
+
+	A dummy email server can be run locally as:
+	``python -m smtpd -n -c DebuggingServer localhost:25``
 
 
-10. Register for an account on the web-app.
-(Can set up a dummy email server as:)
-
-``python -m smtpd -n -c DebuggingServer localhost:25``
-
-
-11. Populate isolate tables:
+  11. Populate isolate tables:
 
 ``python3 addIsolates.py ../ Mgt Salmonella Files/isolate_info.tab``
 
