@@ -4,7 +4,7 @@
 Setting up a local application
 ***********************************************
 
-We provide the website code, so that you can set up your own MGT website to assign MGT's to perhaps assign MGT for your own organism.
+We provide all code required to be able to set up your own MGT website and perhaps assign MGT for your own organism.
 
 Setting up locally requires python3, pip3 (to install various python packages) and PostgreSQL database system.
 
@@ -56,28 +56,43 @@ Setting up databases and website
 1. The code and variables to update
 ------------------------------------
 
-Clone the MGT repository as:
+The code is available at the following git repository.
 
 ``https://github.com/crystalsand10/MGT_code_release``
 
-(If you don't have git, download the code as a zip file from the repository location, and then extract it.)
+Clone this repository. (If you don't have git, download the code as a zip file from the repository location, and then extract it.)
 
 To get the website running a few variables need to be updated for your chosen species of interest.
 
 1. Assuming you want to set up the database now for your organism called NewBacteria, then run the following two commands:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-	find . -type f -exec sed -i.bak “s/Salmonella/NewBacteria/g” {} ;
-	find . -type f -exec sed -i.bak “s/salmonella/newBacteria/g” {} ;
+  	find . -type f -exec sed -i.bak “s/Salmonella/NewBacteria/g” {} ;
+  	find . -type f -exec sed -i.bak “s/salmonella/newBacteria/g” {} ;
 
 
-Make sure the cases are typed in correctly.
+  Make sure the cases are typed in correctly.
 
-2. Create two databases:
 
-  - 'default': database to store user login information.
-  - 'newBacteria' (node the case): database to store the species specific MGT information.
+2. To run the MGT website, atleast two databases are required: one to store a user login information, and second to store MGT isolate information for a single species (if you have multiple species, then you'll have to set up multiple databases).
+
+  In the set up below, dbName is the database name, and appName is the code appName. Substitute with which ever names you like (however make sure the names have no spaces). An example is using "Salmonella" as your appName, and "salmonella" as your database name.
+
+
+  Log into the installed PostgreSQL server, and create two new databases (if logged in via a terminal, the commands are below):
+
+
+
+  .. code-block:: SQL
+
+  	CREATE DATABASE default;
+  	CREATE DATABASE newBacteria;
+
+
+
+
+3. For the remaining variables to be updated follow the README.md in your downloaded MGT folder.
 
 
 Then set up information in the databases as described below.
@@ -85,19 +100,6 @@ Then set up information in the databases as described below.
 2. Setting up the databases
 ---------------------------
 
-To run the MGT website, atleast two databases are required: one to store a user login information, and second to store MGT isolate information for a single species (if you have multiple species, then you'll have to set up multiple databases).
-
-In the set up below, dbName is the database name, and appName is the code appName. Substitute with which ever names you like (however make sure the names have no spaces). An example is using "Salmonella" as your appName, and "salmonella" as your database name.
-
-
-a. Log into the installed PostgreSQL server, and create two new databases (if logged in via a terminal, the commands are below):
-
-
-
-.. code-block:: SQL
-
-	CREATE DATABASE default;
-	CREATE DATABASE <dbName>;
 
 
 
