@@ -1,0 +1,8 @@
+MGT2    MGT2_gene_profiles.txt
+MGT3    MGT3_gene_profiles.txt
+MGT4    MGT4_gene_profiles.txt
+MGT5    MGT5_gene_profiles.txt
+MGT6    MGT6_gene_profiles.txt
+MGT7    MGT7_gene_profiles.txt
+MGT8    MGT8_gene_profiles.txt
+MGT9    MGT9_gene_profiles.txt

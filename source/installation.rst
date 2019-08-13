@@ -200,51 +200,54 @@ c. Add data to the database. You will need to create a number of input files for
 
 
 
-5. Script to generate allelic_profile tables + the MGT table
+  5. Generate code for the allelic profiles tables, and the MGT table:
 
-``python3 setUpApsAndMgt.py ../ Mgt Salmonella Files/tables_aps.txt > autoGenAps``
+	``python3 setUpApsAndMgt.py ../ Mgt Salmonella Files/tables_aps.txt > autoGenAps``
 
-(Copy and paste the output to Salmonella/autoGenAps and rerun migrations on the app).
+	The :download:`tables_ap.txt <files/tables_ap.txt>` file contains two columns:
 
-Header:
-schemeName	display_order
+	| Column 1 = scheme name
+	| Column 2 = scheme display order
 
-
-6. Add alleles:
-``python3 addAlleles.py ../ Mgt Salmonella Files/Alleles/``
-
-
-7. Add snps:
-
-``python3 addSnps.py ../ Mgt Salmonella Files/snpMuts.txt``
-
-Header:
-
-locusId:alleleId	snpMut1,snpMut2...,snpMutN|<empty>
-
-(snpMuts col in standard mutations format)
+	Once again, copy and paste the output to Salmonella/models/autoGenAps.py and rerun migrations (step 2a).
 
 
 
+  6. In the next few steps we add data into the various tables. One way to add alleles to the database is:
 
-8. Populate allelic_profile tables above:
+	``python3 addAlleles.py ../ Mgt Salmonella Files/Alleles/``
 
-``python3 addAllelicProfiles.py ../ Mgt Salmonella Files/schemeToApMapping.txt Files/AllelicProfiles``
-
-Header:
-schemeName	alellicProfilesFileName
+	The Alleles folder contains one fasta file for each of the loci. An example is :download:`STMMW_14461.fasta <files/STMMW_14461.fasta>`.
 
 
+  7. Add snps:
 
-9. Populate clonal_complex tables and assign them to allelic profiles:
+	``python3 addSnps.py ../ Mgt Salmonella Files/snpMuts.txt``
 
-``python3 addClonalComplexes.py ../ Mgt Salmonella  Files/ccInfo.txt Files/ClonalComplexes``
+	Here the snpMuts.txt file contains SNP mutations in a standard mutations format described here_.
 
-Header (of ccInfo.txt):
-schemeName	ccAssignmentToAp	ccMerges	tableNum_orderNum(ccInfo)
+	.. _here: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1867422/
 
-Header (of a ccFile):
-st	dst	ccOrig
+
+
+  8. Populate allelic_profile tables:
+
+	``python3 addAllelicProfiles.py ../ Mgt Salmonella Files/schemeToApMapping.txt Files/AllelicProfiles``
+
+	The :download:`schemeToApMapping.txt <files/schemeToApMapping.txt>` file contains a simple mapping from the scheme name to its corresponding allelic profiles file name.
+
+	The :download:`allelic profiles file<files/MGT2_allelic_profiles.txt>` contains an allelic combination mapped to a unique ST and dST.
+
+
+  9. Populate clonal_complex tables and assign them to allelic profiles:
+
+	``python3 addClonalComplexes.py ../ Mgt Salmonella  Files/ccInfo.txt Files/ClonalComplexes``
+
+	Header (of ccInfo.txt):
+	schemeName	ccAssignmentToAp	ccMerges	tableNum_orderNum(ccInfo)
+
+	Header (of a ccFile):
+	st	dst	ccOrig
 
 
 
