@@ -53,7 +53,7 @@ This pipeline has many dependencies so conda is the best way to handle them all.
 Quickstart
 ##########
 
-``python reads_to_alleles.py read_1.fastq.gz,read_2.fastq.gz ref_alleles.fasta ref_locations.txt output.fasta``
+``python reads_to_alleles.py read_1.fastq.gz,read_2.fastq.gz ref_alleles.fasta output.fasta``
 
 The above script will run with all other settings including species and serovar as default (see below).
 
@@ -91,17 +91,30 @@ Parameters
 ##########
 
 **usage:**
-reads_to_alleles.py [options] inputreads refalleles reflocs outpath
+reads_to_alleles.py [-h] -i INPUTREADS --refalleles REFALLELES -o
+                           OUTPATH [-s SPECIES] [--no_serotyping]
+                           [-y SEROTYPE] [-t THREADS] [-m MEMORY] [-f]
+                           [--min_largest_contig MIN_LARGEST_CONTIG]
+                           [--max_contig_no MAX_CONTIG_NO]
+                           [--genome_min GENOME_MIN] [--genome_max GENOME_MAX]
+                           [--n50_min N50_MIN] [--kraken_db KRAKEN_DB]
+                           [--hspident HSPIDENT] [--locusnlimit LOCUSNLIMIT]
+                           [--snpwindow SNPWINDOW] [--densitylim DENSITYLIM]
+                           [--refsize REFSIZE] [--blastident BLASTIDENT]
 
-**positional arguments:**
 
-:inputreads: Input paired fastq(.gz) files, comma separated (i.e. name_1.fastq,name_2.fastq )
+**required arguments:**
+  -i INPUTREADS, --inputreads INPUTREADS
+                        Input paired fastq(.gz) files, comma separated (i.e.
+                        name_1.fastq,name_2.fastq ) (default: None)
+  --refalleles REFALLELES
+                        File path to MGT reference allele file. By default
+                        sistr results will be used to determine which
+                        subfolder within the default folder (default:
+                        /species_specific_files/)
+  -o OUTPATH, --outpath OUTPATH
+                        Path to ouput file name,required=True (default: None)
 
-:refalleles: File path to MGT reference alleles file
-
-:reflocs: File path to MGT allele locations file
-
-:outpath: Path to ouput file name
 
 **optional arguments:**
 
