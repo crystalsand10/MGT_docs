@@ -70,10 +70,6 @@ Paired end fastq files (gzipped or not) in format strain_name_1.fastq(.gz) and s
 Fasta file provided with script containing intact alleles for each locus
 (may be initial "1" alleles only or include other intact alleles)
 
-**Reference locations**
-
-Text file provided with script containing position and orientation information for each locus relative to a "reference" genome
-
 Outputs
 #######
 
