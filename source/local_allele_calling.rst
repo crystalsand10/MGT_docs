@@ -87,16 +87,7 @@ Parameters
 ##########
 
 **usage:**
-reads_to_alleles.py [-h] -i INPUTREADS --refalleles REFALLELES -o
-                           OUTPATH [-s SPECIES] [--no_serotyping]
-                           [-y SEROTYPE] [-t THREADS] [-m MEMORY] [-f]
-                           [--min_largest_contig MIN_LARGEST_CONTIG]
-                           [--max_contig_no MAX_CONTIG_NO]
-                           [--genome_min GENOME_MIN] [--genome_max GENOME_MAX]
-                           [--n50_min N50_MIN] [--kraken_db KRAKEN_DB]
-                           [--hspident HSPIDENT] [--locusnlimit LOCUSNLIMIT]
-                           [--snpwindow SNPWINDOW] [--densitylim DENSITYLIM]
-                           [--refsize REFSIZE] [--blastident BLASTIDENT]
+reads_to_alleles.py [-h] -i INPUTREADS --refalleles REFALLELES -o OUTPATH [optional args]
 
 
 **required arguments:**
