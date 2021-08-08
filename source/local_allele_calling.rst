@@ -53,7 +53,7 @@ This pipeline has many dependencies so conda is the best way to handle them all.
 Quickstart
 ##########
 
-``python reads_to_alleles.py read_1.fastq.gz,read_2.fastq.gz ref_alleles.fasta ref_locations.txt output.fasta``
+``python reads_to_alleles.py read_1.fastq.gz,read_2.fastq.gz ref_alleles.fasta output.fasta``
 
 The above script will run with all other settings including species and serovar as default (see below).
 
@@ -69,10 +69,6 @@ Paired end fastq files (gzipped or not) in format strain_name_1.fastq(.gz) and s
 
 Fasta file provided with script containing intact alleles for each locus
 (may be initial "1" alleles only or include other intact alleles)
-
-**Reference locations**
-
-Text file provided with script containing position and orientation information for each locus relative to a "reference" genome
 
 Outputs
 #######
@@ -91,17 +87,21 @@ Parameters
 ##########
 
 **usage:**
-reads_to_alleles.py [options] inputreads refalleles reflocs outpath
+reads_to_alleles.py [-h] -i INPUTREADS --refalleles REFALLELES -o OUTPATH [optional args]
 
-**positional arguments:**
 
-:inputreads: Input paired fastq(.gz) files, comma separated (i.e. name_1.fastq,name_2.fastq )
+**required arguments:**
+  -i INPUTREADS, --inputreads INPUTREADS
+                        Input paired fastq(.gz) files, comma separated (i.e.
+                        name_1.fastq,name_2.fastq ) (default: None)
+  --refalleles REFALLELES
+                        File path to MGT reference allele file. By default
+                        sistr results will be used to determine which
+                        subfolder within the default folder (default:
+                        /species_specific_files/)
+  -o OUTPATH, --outpath OUTPATH
+                        Path to ouput file name,required=True (default: None)
 
-:refalleles: File path to MGT reference alleles file
-
-:reflocs: File path to MGT allele locations file
-
-:outpath: Path to ouput file name
 
 **optional arguments:**
 
