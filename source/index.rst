@@ -14,6 +14,7 @@ Welcome to MGT's documentation!
     overview
     website
     local_allele_calling
+    downloads
     report
     analysis_pipeline
     installation
