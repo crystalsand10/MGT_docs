@@ -1,10 +1,10 @@
 .. _website:
 
 ***********************************
-MGTdb
+MGTdb website features
 ***********************************
 
-MGTdb is a webservice and database system which enables a user to upload isolates, obtain MGT assignments and explore these in the context of the local and global database of isolates. MGTdb is currently available for three organisms namely, *Salmonella* Typhimurium (Payne *et al* 2020) at https://mgtdb.unsw.edu.au/salmonella, *Salmonella* Enteritidis (Luo *et al* 2021) at https://mgtdb.unsw.edu.au/enteritidis and *Vibrio cholerae* (Cheney *et al* 2021) at https://mgtdb.unsw.edu.au/vibrio. 
+MGTdb is a webservice and database system which enables a user to upload isolates, obtain MGT assignments and explore these in the context of the local and global database of isolates. MGTdb is currently available for three organisms namely, *Salmonella* Typhimurium (Payne *et al.* 2020) at https://mgtdb.unsw.edu.au/salmonella, *Salmonella* Enteritidis (Luo *et al.* 2021) at https://mgtdb.unsw.edu.au/enteritidis and *Vibrio cholerae* (Cheney *et al.* 2021) at https://mgtdb.unsw.edu.au/vibrio. 
 
 The MGT website is available at: https://mgtdb.unsw.edu.au
 
@@ -15,8 +15,8 @@ Navigating the website
 The various features of the website are shown below.
 
 
-Global epidemeology
--------------------
+Summary of global epidemeology
+--------------------------------
 
 In a species homepage, top 5 ST (Sequence Type) distribution by the continents can be seen. Hovering reveals the ST number as well as the number of isolates with this ST. In the figure below, the top ST value and count is shown for South America (ST=23, count=27).
 
