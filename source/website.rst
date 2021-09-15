@@ -1,13 +1,12 @@
 .. _website:
 
 ***********************************
-Website
+MGTdb
 ***********************************
 
-The MGT website is available at: http://mgtdb.unsw.edu.au
-The website enables you to access MGT information for public isolates. Currently, MGT has only been set up for *Salmonella* typhimurium. However, in the near future, MGT will be available for other organisms such as *Vibrio cholerae*, *Salmonella* enterica and Bordetella pertussis.
+MGTdb is a webservice and database system which enables a user to upload isolates, obtain MGT assignments and explore these in the context of the local and global database of isolates. MGTdb is currently available for three organisms namely, *Salmonella* Typhimurium (Payne *et al* 2020) at https://mgtdb.unsw.edu.au/salmonella, *Salmonella* Enteritidis (Luo *et al* 2021) at https://mgtdb.unsw.edu.au/enteritidis and *Vibrio cholerae* (Cheney *et al* 2021) at https://mgtdb.unsw.edu.au/vibrio. 
 
-Through the website, you can submit your isolates and get an MGT assignment.
+The MGT website is available at: https://mgtdb.unsw.edu.au
 
 
 Navigating the website
@@ -110,3 +109,13 @@ Privacy
 We take your uploaded isolates privacy very seriously. Your isolates are made public only if you specify. Furthermore, if you delete your isolates, then all associated isolate meta-data and the uploaded files are deleted.
 
 Note that when a project is deleted, all the isolates in that project and their associated data are deleted.
+
+
+References 
+----------
+
+Cheney L, Payne M, Kaur S, Lan R. Multilevel Genome Typing Describes Short-and Long-Term Vibrio cholerae Molecular Epidemiology. *Msystems*. 2021 Aug 24;6(4):e00134-21.
+
+Luo L, Payne M, Kaur S, Hu D, Cheney L, Octavia S, Wang Q, Tanaka MM, Sintchenko V, Lan R. Elucidation of global and national genomic epidemiology of Salmonella enterica serovar Enteritidis through multilevel genome typing. *Microbial genomics*. 2021 Jul 22;7(7):000605.
+
+Payne M, Kaur S, Wang Q, Hennessy D, Luo L, Octavia S, Tanaka MM, Sintchenko V, Lan R. Multilevel genome typing: genomics-guided scalable resolution typing of microbial pathogens. *Eurosurveillance*. 2020 May 21;25(20):1900519.
