@@ -14,14 +14,15 @@ A MGT barcode assigned to a bacterial genome is stable and can be used to unique
 
 .. image:: images/sts_v2.png
   :width: 800
-  :alt: MGT STs.
+  :alt: Screenshot of MGT STs
 
 This screenshot of MGTdb shows GTs of a few *Salmonella* Typhimurium isolates. 
 
 .. image:: images/ccs_v2.png
   :width: 800
+  :alt: Screenshot of MGT CCs and ODCs
 
-In this figure, the same strains as in the previous figure are shown, but instead of the stable MGT STs, shown are an unstable CCs at each MGT level, and ODCs which are calculated for the largest MGT level. CCs and ODCs enable further relatedness analysis.  
+In this screenshot, the same strains as in the previous figure are shown, but instead of the stable MGT STs, shown are an unstable CCs at each MGT level, and ODCs which are calculated for the largest MGT level. CCs and ODCs enable further relatedness analysis.  
 
 
 References
