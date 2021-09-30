@@ -4,9 +4,13 @@
 Database schema
 ***********************************
 
+Data for each organism is stored in its own postgres database. The schema is as follows:
 
-Schema of an organism's MGT database drawn in dbdiagram.io is available to download and view :download:`pdf <files/salmonellaSchema.pdf>`
+.. image:: images/OrganismDatabaseDiagram_v2.png
+  :width: 2000
+  :alt: Organism database schema. 
 
 
-The raw database schema can be found here:  `Database schema
-<https://dbdiagram.io/d/5d492e41ced98361d6dd5554/>`_.
+
+User information is stored in a separate database (schema not shown here).
+
