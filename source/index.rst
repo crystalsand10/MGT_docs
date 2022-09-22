@@ -18,7 +18,6 @@ Welcome to MGT's documentation!
     installation
     analysis_pipeline
     database_schema
-    additional
 
 
 
