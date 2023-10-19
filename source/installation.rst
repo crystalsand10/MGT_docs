@@ -58,236 +58,22 @@ Setting up databases and website
 
 The code is available at the following git repository.
 
-``https://github.com/crystalsand10/MGT_code_release``
+``https://github.com/crystalsand10/MGT_local``
 
 Clone this repository. (If you don't have git, download the code as a zip file from the repository location, and then extract it.)
 
-To get the website running a few variables need to be updated for your chosen species of interest.
+To get the website running a few variables in the Mgt/Mgt/Mgt/settings_template.py file need to be updated for your chosen species of interest and relevant information to the species that you want to set up. 
+More information on this is provided in the README.md file located in the root directory of the codebase.
 
-1. Assuming you want to set up the database now for your organism called NewBacteria, then run the following two commands:
-
-  .. code-block:: bash
-
-  	find . -type f -exec sed -i.bak “s/Salmonella/NewBacteria/g” {} ;
-  	find . -type f -exec sed -i.bak “s/salmonella/newBacteria/g” {} ;
-
-
-  Make sure the cases are typed in correctly.
-
-
-2. To run the MGT website, atleast two databases are required: one to store a user login information, and second to store MGT isolate information for a single species (if you have multiple species, then you'll have to set up multiple databases).
-
-  In the set up below, newBacteria is the database name, and NewBacteria is the code application name. Substitute with which ever names you like (however make sure the names have no spaces). An example is using "Salmonella" as your application name, and "salmonella" as your database name.
-
-
-  Log into the installed PostgreSQL server, and create two new databases (if logged in via a terminal, the commands are below):
-
-
-
-  .. code-block:: SQL
-
-  	CREATE DATABASE default;
-  	CREATE DATABASE newBacteria;
-
-
-
-
-3. For the remaining variables to be updated follow the README.md in your downloaded MGT folder.
-
-
-Then set up information in the databases as described below.
 
 2. Setting up the databases
 ---------------------------
 
-A link to the database schema for a new organism (e.g. newBacteria) is provided here :ref:`database_schema`. 
+After making changes to the settings file, run the `setup_new_database.ssh` script to setup the new databases as follows. 
 
+``./setup/setup_new_database.ssh``
 
-a. Go to the downloaded code, such that you are in the same folder as the file manage.py. Then run database migrations as follows:
-
-  .. code-block:: bash
-
-  	python3 manage.py makemigrations NewBacteria
-  	python3 manage.py migrate --database=newBacteria
-
-  This will create initial tables.
-
-
-
-b. Then create a new postgres user (the website user) and give it restricted access to use the newly created database tables:
-
-  .. code-block:: SQL
-
-	  CREATE USER mgtWebsite WITH password '<PASSWORD>';
-	  GRANT SELECT ON ALL TABLES IN SCHEMA public TO mgtWebsite;
-	  GRANT INSERT, UPDATE, DELETE ON "Salmonella_isolate" TO mgtWebsite;
-	  GRANT INSERT, UPDATE, DELETE ON "Salmonella_project" TO mgtWebsite;
-	  GRANT INSERT, UPDATE ON "Salmonella_user" TO mgtWebsite;
-
-
-c. Add data to the database. You will need to create a number of input files for this purpose and runs scripts as follows:
-
-  1. Update the refFileInfo.json. Sample is available for download at :download:`json <files/refFileInfo.json>`. In this file, provide information for your bacteria (this information is displayed at various points in the website). Multiple chromosomes (for example as found for Vibrio cholerae) can be added.
-
-
-
-    .. code-block:: bash
-
-  	  python3 populateReference.py ../ Mgt Salmonella Files/refFileInfo.json
-
-
-
-    (Location of the chromosome file must be supplied in refFileInfo.json, which will be used to move the file(s) to the location provided in SETTINGS.py)
-
-    Note: Chromosome is required, since some bacteria such as Vibrio have more than chromosome.
-
-  2. Then add the loci that you'd like your MGT to be based on. An example file is available :download:`here <files/sampleLoci.txt>`. This is a simple table separated file with columns as follows:
-
-
-
-    ``python3 populateLoci.py ../ Mgt Salmonella Files/lociLocationsInRef.txt``
-
-    The input file is a tab separated file,  describing the loci locations as follows:
-
-    | Column 1 = loci tag name
-    | Column 2 = loci start position in reference
-    | Column 3 = loci end position in reference
-    | Column 4 = gene direction with regards to reference
-    | Column 5 = chromosome number
-
-
-
-
-
-
-  3. Add the schemes
-
-    ``python3 populateSchemes.py ../ Mgt Salmonella Files/schemesInfo.txt Files/Schemes``
-
-	:download:`schemesInfo.txt <files/schemesInfo.txt>` is a tab separated file, describing the following info:
-
-	| Column 1 = Scheme name (e.g. MGT1, MGT2 etc; must not contain space)
-	| Column 2 = cut off threshold, i.e. maximum number of missing loci allowed.
-	| Column 3 = name of file containing the loci to be included in this scheme (the file contains one loci tag name per line).
-	| Column 4 = Scheme database.
-	| Column 5 = description of the scheme (optional).
-
-
-
-
-  4. Generate code for clonal complex tables and add clonal complex tables information to Tables_cc:
-
-	``python3 setUpCcs.py ../ Mgt Salmonella Files/tables_ccs.txt > autoGenCcs.out.py``
-
-	The :download:`tables_cc.txt <files/tables_cc.txt>` file contains one clonal cluster information per line:
-
-	| Column 1 = Scheme name (as provided in the previous step).
-	| Column 2 = What table should this ODC table be displayed in.
-	| Column 3 = The order of display in the corresponding table.
-	| Column 4 = The display name of the clonal cluster column.
-
-
-
-	e.g.
-	stmcgMLST	2	4	"stmcgmlst 10 allele"
-
-	e.g. (when the same value is to appear in multiple tables)
-	stmcgMLST	1,2	10,1	"stmcgmlst 1 allele","stmcgmlst 1 allele"
-
-
-	Once run, copy and add the output (autoGenCcs.out.py) to NewBacteria/models/autoGenCcs.py and rerun migrations (step 2a).
-
-
-
-
-  5. Generate code for the allelic profiles tables, and the MGT table:
-
-	``python3 setUpApsAndMgt.py ../ Mgt Salmonella Files/tables_aps.txt > autoGenAps``
-
-	The :download:`tables_ap.txt <files/tables_ap.txt>` file contains two columns:
-
-	| Column 1 = scheme name
-	| Column 2 = scheme display order
-
-	Once again, copy and paste the output to Salmonella/models/autoGenAps.py and rerun migrations (step 2a).
-
-
-
-  6. In the next few steps we add data into the various tables. One way to add alleles to the database is:
-
-	``python3 addAlleles.py ../ Mgt Salmonella Files/Alleles/``
-
-	The Alleles folder contains one fasta file for each of the loci. An example is :download:`STMMW_14461.fasta <files/STMMW_14461.fasta>`.
-
-
-  7. Add snps:
-
-	``python3 addSnps.py ../ Mgt Salmonella Files/snpMuts.txt``
-
-	Here the snpMuts.txt file contains SNP mutations in a standard mutations format described here_.
-
-	.. _here: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1867422/
-
-
-
-  8. Populate allelic_profile tables:
-
-	``python3 addAllelicProfiles.py ../ Mgt Salmonella Files/schemeToApMapping.txt Files/AllelicProfiles``
-
-	The :download:`schemeToApMapping.txt <files/schemeToApMapping.txt>` file contains a simple mapping from the scheme name to its corresponding allelic profiles file name.
-
-	The :download:`allelic profiles file<files/MGT2_allelic_profiles.txt>` contains an allelic combination mapped to a unique ST and dST.
-
-
-  9. Populate clonal complex tables and assign them to allelic profiles:
-
-	``python3 addClonalComplexes.py ../ Mgt Salmonella  Files/ccInfo.txt Files/ClonalComplexes``
-
-	The :download:`ccInfo.txt <files/ccInfo.txt>` contains information regarding the files for each clonal complex, and the clonal complex itself added to the database earlier. The columns are:
-
-	| Column 1 = scheme name
-	| Column 2 = A file containing information regarding the clonal complex assignment to an allelic profile (e.g. :download:`MGT7_cc.txt <files/MGT7_cc.txt>`).
-	| Column 3 = A file containing information regarding newly computed clonal complex merges (e.g. :download:`MGT7_cc_merges.txt <files/MGT7_cc_merges.txt>`).
-	| Column 4 = Format of tableNumber_orderNumer.
-
-
-
-  10. Next, we need to make sure that a user is registered, to add isolates and associated metadata. To do so, run the web application and register.
-
-	The web application can be run locally as:
-	``python3 manage.py runserver``
-
-	A dummy email server can be run locally as:
-	``python -m smtpd -n -c DebuggingServer localhost:25``
-
-
-  11. Then, using the registered user name, we populate the isolate tables:
-
-	``python3 addIsolates.py ../ Mgt Salmonella Files/isolate_info.tab``
-
-	An example file is provided :download:`here <files/isolate_info.tab>`.  Depending on how you organise your isolate_info.tab file, the columns numbers of each metadata need be changed at the start of the addIsolate.py script.
-
-
-
-  12. Next we populate the MGT table, and assign isolates to MGT:
-
-	``python3 addMgts.py ../ Mgt Salmonella Files/mgt_annotations.tab``
-
-	A sample :download:`mgt_annotations.tab <files/mgt_annotations.tab>` is provided here.
-
-  13. Finally, we generate a view table, which contains allelic profiles and clonal complexes for easy query.
-
-	``python3 genViewSqlAndClass.py ../ Mgt Salmonella mlstWebsite``
-
-	When this script is run, two files are written out:
-
-	1. "runOnDb.sql" : run the two sql statements in postgresSql (can follow the method in 14. below).
-	2. "autoGenView" : copy and paste this to autoGenViews.py in the models folder.
-
-
-  14. Run postgreSQL commands from file:
-
-	``psql -U <postgresUsername> -d newBacteria -a -f runOnDb.sql``
+Some prompts for a PostgreSQL password will appear throughout the course of the script, once these are entered, the program will setup the models. 
 
 
 =====================================
@@ -296,9 +82,8 @@ Running the website
 
 To run the website locally simply:
 
-`` python3 manage.py runserver ``
+``python3 manage.py runserver --settings Mgt.settings_template``
 
 Otherwise in the settings set DEBUG=False and follow the instructions in section "Additionally setting up the website via Apache".
-
 
 Remember, you should set up regular backups of your data in the database.
