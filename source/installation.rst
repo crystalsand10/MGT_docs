@@ -62,7 +62,7 @@ The code is available at the following git repository.
 
 Clone this repository. (If you don't have git, download the code as a zip file from the repository location, and then extract it.)
 
-To get the website running a few variables in the Mgt/Mgt/Mgt/settings_template.py file need to be updated for your chosen species of interest and relevant information to the species that you want to set up. 
+To get the website running a few variables in the `settings_template.py` file need to be updated for your species of interest and some files with genome and loci information need to be provided. 
 More information on this is provided in the README.md file located in the root directory of the codebase.
 
 
