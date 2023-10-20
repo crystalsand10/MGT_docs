@@ -175,6 +175,9 @@ epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
+extensions = [
+    'sphinx_rtd_theme',
+]
 
 # -- Options for todo extension ----------------------------------------------
 
