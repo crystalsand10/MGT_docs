@@ -71,7 +71,7 @@ More information on this is provided in the README.md file located in the root d
 
 After making changes to the settings file, run the `setup_new_database.ssh` script to setup the new databases as follows. 
 
-``./setup/setup_new_database.ssh example_inputs_2.Clawclip``
+``./setup/setup_new_database.ssh example_inputs_2.setupPath``
 
 Some prompts for a PostgreSQL password will appear throughout the course of the script, once these are entered, the program will setup the models. 
 
