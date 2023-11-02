@@ -56,9 +56,7 @@ Setting up databases and website
 1. The code and variables to update
 ------------------------------------
 
-The code is available at the following git repository.
-
-``https://github.com/crystalsand10/MGT_local``
+The code is available at the following git repository: https://github.com/vandana1408/MGT-local 
 
 Clone this repository. (If you don't have git, download the code as a zip file from the repository location, and then extract it.)
 
