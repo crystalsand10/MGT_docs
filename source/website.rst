@@ -4,7 +4,7 @@
 MGTdb website features
 ***********************************
 
-MGTdb is a webservice and database system which enables a user to upload isolates, obtain MGT assignments and explore these in the context of the local and global database of isolates. MGTdb is currently available for three organisms namely, *Salmonella* Typhimurium (Payne *et al.* 2020) at https://mgtdb.unsw.edu.au/salmonella, *Salmonella* Enteritidis (Luo *et al.* 2021) at https://mgtdb.unsw.edu.au/enteritidis and *Vibrio cholerae* (Cheney *et al.* 2021) at https://mgtdb.unsw.edu.au/vibrio. 
+MGTdb is a webservice and database system which enables a user to upload isolates, obtain MGT assignments and explore these in the context of the local and global database of isolates. MGTdb is currently available for three organisms namely, *Salmonella* Typhimurium (Payne *et al.* 2020) at https://mgtdb.unsw.edu.au/typhimurium, *Salmonella* Enteritidis (Luo *et al.* 2021) at https://mgtdb.unsw.edu.au/enteritidis and *Vibrio cholerae* (Cheney *et al.* 2021) at https://mgtdb.unsw.edu.au/vibrio. 
 
 The MGT website is available at: https://mgtdb.unsw.edu.au
 
@@ -41,7 +41,7 @@ The isolate filter feature. Isolates can be searched for by metadata, name, MGT-
   :width: 800
   :alt: in this fig.
 
-These isolates can also be downloaded via the button shown at the bottom of the table. Currently, there is a maximum limit of 10,000 for the download.
+These isolates can also be downloaded via the button shown at the bottom of the table.
 
 On selecting an isolate, its details, can be displayed, as shown below.
 
@@ -49,7 +49,7 @@ On selecting an isolate, its details, can be displayed, as shown below.
   :width: 600
   :alt: in this fig.
 
-Features of this isolate can be selected by clicking on them (here selected are isolate type: "clinical" and Sequence type: "6"). An exact mach is then performed, and resultant strains are shown in a table (similar to the previous figure).
+Features of this isolate can be selected by clicking on them (here selected are isolate type: "clinical" and Sequence type: "6"). An exact match is then performed, and resultant strains are shown in a table (similar to the previous figure).
 
 
 
@@ -69,7 +69,7 @@ You can set up an account at the website. Simply click on Register at the top na
 
 Doing so will send you an email with a link (check your junk email if you don't receive an email within a few minutes). Click or copy and paste the link, and your account will be active, and you can log in with your supplied details.
 
-Note: Certificates will be added soon to make your communication with the website httpsecure.
+Note: Certificates will be added soon to make your communication with the website http secure.
 
 
 Uploading isolates

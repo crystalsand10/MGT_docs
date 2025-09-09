@@ -20,7 +20,7 @@ All initially-loaded, or filtered- isolates are shown in a table as below.
   :width: 2000
   :alt: Table showing all initially-loaded or filtered isolates
 
-Data shown in screenshot: https://mgtdb.unsw.edu.au/salmonella/isolate-list?country=Australia&searchType=and
+Data shown in screenshot: https://mgtdb.unsw.edu.au/typhimurium/isolate-list?country=Australia&searchType=and
 
 
 Key features of the table are: 
@@ -43,7 +43,7 @@ Interactive graphics
 ===========================
 All isolates in the database, or filtered isolates can be graphically summarized. Clicking on 'Graphical view' loads a page which can summarise the data in three ways: 
 
-1. Distribution of counts of isolates with STs, CCs or ODCs over time or location
+1. Distribution of counts of isolates with STs, CCs or ODCs over time or location (Currently supports showing the top 10 STs for better performance)
 2. Distribution of counts of isolates with STs, CCs or ODCs over time and location
 3. Distribution of isolate counts within particular STs, CCs or ODCs
 
@@ -53,7 +53,7 @@ The first two utilize temporal and spacial metadata associated with isolates. Th
   :width: 2000
   :alt: Graphical View
 
-To visualise any of these graphs, the data needs to be initially loaded by clicking on 'Load data'. The data is fetched, transformed and plotted (the first graphical view is shown below for all public data in the *Salmonella* Typhimurium database).  
+To visualise any of these graphs, the data needs to be initially loaded by clicking on 'Load data'. The data is then fetched, transformed and plotted(the first graphical view is shown below for all public data in the *Salmonella* Typhimurium database).  
 
 .. image:: images/graph1.png
   :width: 2000
@@ -67,13 +67,13 @@ Key features of these graphs are as follows:
 * As not all isolates, for which the plot has been generated, will contain metadata annotations; the counts of those that do contain the required metadata and are included in the plot are indicated below. 
 * The displayed graph can be downloaded by clicking on the link 'Download SVG' below the plot. On most browsers, simply clicking on the link can download the SVG, however, on some browsers, right-clicking on the link triggers the download. 
 
-**Note:** It is strongly recommended that these graphs be used with data filtered to a smaller set (compared to the complete data in the databased). Otherwise, depending on your browser and computer, this process may take a long time, as the data for plotting is loaded via javascript onto the users browsers, and rendering a plot with tens-of-thousands of bars may be computationally intensive. 
+**Note:** It is strongly recommended that these graphs be used with data filtered to a smaller set (compared to the complete data in the database). Otherwise, depending on your browser and computer, this process may take a long time, as the data for plotting is loaded via javascript onto the users browsers, and rendering a plot with tens-of-thousands of bars may be computationally intensive. 
 
 ===========================
 Report
 ===========================
 
-A report can be generated on MGTdb for any given country (or project - if logged in). The report summarizes data at every MGT-level in the past 10 years. 
+A report can be generated on MGTdb for any given country and collection year (or project - if logged in). The report summarizes data at every MGT-level. 
 
 
 .. image:: images/report_access.png
@@ -109,13 +109,13 @@ Filtered data (or all initially-loaded data; albiet with row limits) can be down
 Download the entire set as CSV
 ------------------------------------
 
-The set of searched (or initially loaded) isolates, along with the associated metadata, ST, CC and ODC assignments (i.e the data shown in the table, in both the ST and CC views) can be downloaded as a CSV file. Currently, a maximum of 1000000 isolates can be downloaded in one go. The larger the number of isolates requested for download, depending on your internet speed, this process may take a few minutes.
+The set of searched (or initially loaded) isolates, along with the associated metadata, ST, CC and ODC assignments (i.e the data shown in the table, in both the ST and CC views) can be downloaded as a CSV file. The larger the number of isolates requested for download, the longer this process may take, depending on your internet speed.
 
 
 Download MGT9 allelic profiles
 -------------------------------------
 
-The set of searched (or initially loaded) isolates, along with the highest level MGT allelic profiles can be downloaded in CSV format. Currently, allelic profiles for maximum of 10000 (the first 10000) isolates are downloaded via one request.
+The set of searched (or initially loaded) isolates, along with the highest level MGT allelic profiles can be downloaded in CSV format.
 
 When the "In GrapeTree format" option is selected, the ST and dST columns are removed, and the negative alleles (i.e. alleles with missing information) are converted to positive alleles. This allows using the downloaded CSV file as input to the `GrapeTree <https://github.com/achtman-lab/GrapeTree>`_ tool (the STs, dSTs and other information downloaded from "Download the entire set as CSV" can be used as metadata in GrapeTree). Thus, by visualising the downloaded files in, the epidemological investigations revealed through the minimal spanning tree built using allelic profiles of the downloaded isolates can be conducted. 
 
@@ -145,7 +145,7 @@ The set of searched (or initially loaded) isolates, along with the associated me
   :alt: Clicking on 'View in Microreact'
 
 
-The isolates are sent by MGTdb to Microreact via Microreact's API and the link returned by Microreact is displayed instead of the button (as shown in the screenshot above). This link opens data in Microreact in a new tab (as shown in the screenshot below). Current, there a limit of 2000 isolates per request (limit set by Microreact). 
+The isolates are sent by MGTdb to Microreact via Microreact's API and the link returned by Microreact is displayed instead of the button (as shown in the screenshot above). This link opens data in Microreact in a new tab (as shown in the screenshot below).
 
 .. image:: images/microreact.png
   :width: 2000
