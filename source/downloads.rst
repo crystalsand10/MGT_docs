@@ -43,7 +43,7 @@ Interactive graphics
 ===========================
 All isolates in the database, or filtered isolates can be graphically summarized. Clicking on 'Graphical view' loads a page which can summarise the data in three ways: 
 
-1. Distribution of counts of isolates with STs, CCs or ODCs over time or location (Currently supports showing the top 10 STs for better performance)
+1. Distribution of counts of isolates with STs, CCs or ODCs over time or location (Currently supports showing the top 10 STs, CCs or ODCs for better performance)
 2. Distribution of counts of isolates with STs, CCs or ODCs over time and location
 3. Distribution of isolate counts within particular STs, CCs or ODCs
 
@@ -73,7 +73,7 @@ Key features of these graphs are as follows:
 Report
 ===========================
 
-A report can be generated on MGTdb for any given country and collection year (or project - if logged in). The report summarizes data at every MGT-level. 
+A report can be generated on MGTdb for any given country and collection year from 1984 to 2025 (or project - if logged in). The report summarizes data at every MGT-level. 
 
 
 .. image:: images/report_access.png
